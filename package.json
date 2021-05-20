@@ -1,6 +1,6 @@
 {
-  "name": "with-iron-session",
-  "version": "1.0.0",
+  "name": "next-js-app",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "build": "next build",
