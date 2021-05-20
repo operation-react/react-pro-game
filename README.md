@@ -1,5 +1,5 @@
-# Temporary documentation
-
-## SCSS files
-**master.scss** — the SCSS file that is directly imported into the app. Any linked SCSS file should probably be linked inside it via SASS's `@import` rule\
-**colors.scss** — contains the app's colors (element colors, font colors etc.)
+# Game next
+ - For initialize use $npm i
+ - For development use $npm run dev
+ - For build use $npm run build
+ - For production use $npm run start
