@@ -6,7 +6,7 @@ const FormLogin = ({ errorMessage, onSubmit }) => (
     <label>
       <span>Type your username and password</span>
       <input type="text" name="username" placeholder="UserName" required />
-      <input type="password" maxlength="30" minlegth="5" name="password" placeholder="Password" required />
+      <input type="password" maxLength="30" minLegth="5" name="password" placeholder="Password" required />
     </label>
 
     <button type="submit">Login</button>
