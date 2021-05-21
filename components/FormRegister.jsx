@@ -7,7 +7,7 @@ const FormRegister = ({ errorMessage, onSubmit }) => (
       <span>Type your username and password</span>
       <input type="text" name="username" placeholder="UserName" required />
       <input type="email" name="email" placeholder="Email" required/>
-      <input type="text" maxLength="30" minLegth="5" name="password" placeholder="Password" required />
+      <input type="text" name="password" placeholder="Password" required />
     </label>
 
     <button type="submit">Login</button>
