@@ -15,7 +15,6 @@ export default withSession(async (req, res) => {
       text: query,
     });
     client.end();
-    console.log(result);
     if(result.rowCount!==1){
       throw {response:{status:418},data:{message:"Invalid password or login!"}};
     }

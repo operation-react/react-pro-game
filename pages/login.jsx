@@ -22,7 +22,6 @@ const Login = () => {
       username: e.currentTarget.username.value,
       password: hashCode(e.currentTarget.password.value),
     };
-
     try {
       await mutateUser(
         fetchJson("/api/login", {

@@ -3,6 +3,7 @@ import useUser from "../lib/useUser";
 import Layout from "../components/Layout";
 import FormRegister from "../components/FormRegister";
 import fetchJson from "../lib/fetchJson";
+import hashCode from "../lib/util";
 import Link from "next/link";
 
 const Register = () => {
@@ -19,7 +20,7 @@ const Register = () => {
 //// TODO: Validation
     const body = {
       username: e.currentTarget.username.value,
-      password: e.currentTarget.password.value,
+      password: hashCode(e.currentTarget.password.value),
       email:    e.currentTarget.email.value,
     };
 // TODO: Add salt
