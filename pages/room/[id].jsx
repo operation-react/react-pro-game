@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react'
+import { useState } from 'react'
 import Link from 'next/link'
 import {useRouter} from 'next/router'
 import Layout from '../../components/Layout'
@@ -20,7 +20,7 @@ export default function Room() {
 
   return(
     <Layout>
-      <h2>You are in room #{router.query.id} now!</h2>
+      <h2>You are in room #{router.query.id}  now!</h2>
       <div className='roomContainer'>
         <img src={image} />
         <div className='answersContainer'>
@@ -39,18 +39,24 @@ export default function Room() {
           {renderedPlayers}
         </div>
       </div>
-      <footer>
-        <Link href={'/'}><a>Disconect</a></Link>
-      </footer>
+      <Link href={'/'}><a className='disconnectLink'> 
+      <img className='disconnectIcon' src='https://image.flaticon.com/icons/png/128/1824/1824266.png' />
+        Disconect
+      </a></Link>
 
       <style jsx global>{`
+        *{
+          font-family: roboto;
+        }
+
         h2{
           display: flex;
           align-self: auto;
-          justify-content: flex-start;
+          justify-content: center;
           margin-top: -70px;
           margin-bottom: 100px;
           color: white;
+          white-space: break-spaces;
         }
 
         .roomContainer{
@@ -65,10 +71,10 @@ export default function Room() {
         }
 
         .answersContainer{
-          width: 408px;
+          width: 403px;
           background: lightseagreen;
           color: white;
-          padding: 15px 2px;
+          padding: 0px 2px;
         }
 
         .answersContainer > h3{
@@ -78,10 +84,9 @@ export default function Room() {
         }
 
         .answersContainer > form{
-          margin: 12px 2px;
+          margin: 12px 0px;
           width: 400px;
           height: 100px;
-          padding: 4px;
         }
 
         .answersContainer > form > input.input{
@@ -109,6 +114,30 @@ export default function Room() {
           border-radius: 50px;
           padding: 12px 18px;
           border: 3px solid #FFFFFF;
+        }
+
+        .disconnectLink{
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          position: absolute;
+          bottom: 30px;
+          left: 60px;
+          text-align: end;
+          padding-right: 30px;
+          background: #00A2E2;
+          border-radius: 29px;
+          width: 337px;
+          height: 68px;
+          font-size: 36px;
+          text-decoration: none;
+          color: #FFFFFF;
+          cursor: pointer;
+        }
+
+        .disconnectIcon{
+          width: 47px;
+          height: 47px;
         }
       
       `}</style>
