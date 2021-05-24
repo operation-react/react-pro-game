@@ -35,12 +35,12 @@ export default function Room() {
             <RenderedAnswers />
           </div>
         </div>
-        <div>
+        <div className='playersList'>
           {renderedPlayers}
         </div>
       </div>
       <Link href={'/'}><a className='disconnectLink'> 
-      <img className='disconnectIcon' src='https://image.flaticon.com/icons/png/128/1824/1824266.png' />
+        <img className='disconnectIcon' src='https://image.flaticon.com/icons/png/128/1824/1824266.png' />
         Disconect
       </a></Link>
 
@@ -65,15 +65,17 @@ export default function Room() {
         }
 
         .roomContainer > img{
-          width: 450px;
-          height: auto;
+          width: 360px;
+          height: 360px;
           border: 3px inset lightseagreen;
         }
 
         .answersContainer{
+          min-height: 500px;
           width: 403px;
           background: lightseagreen;
-          color: white;
+          color: #FFFFFF;
+          border-radius: 10px;
           padding: 0px 2px;
         }
 
@@ -125,7 +127,7 @@ export default function Room() {
           left: 60px;
           text-align: end;
           padding-right: 30px;
-          background: #00A2E2;
+          background: lightseagreen;
           border-radius: 29px;
           width: 337px;
           height: 68px;
@@ -138,6 +140,29 @@ export default function Room() {
         .disconnectIcon{
           width: 47px;
           height: 47px;
+        }
+
+        .playersList{
+          display: flex;
+          flex-direction: column;
+          background: lightseagreen;
+          min-width: 150px;
+          margin-left: 50px;
+        }
+
+        .playersList > div {
+          display: flex;
+          justify-content: space-between;
+          color: #FFFFFF;
+          height: auto;
+          color: #FFFFFF;
+          border-radius: 10px;
+          border-bottom: 1px solid #ffffff59;
+          padding: 4px 10px;
+        }
+
+        .playersList > div > * {
+          margin: 4px;
         }
       
       `}</style>
