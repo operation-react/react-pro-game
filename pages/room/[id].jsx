@@ -10,33 +10,56 @@ export default function Room() {
   const [answers, setAnswers] = useState(['Monkey', 'Bottle', 'Souvenir packages'])
   const [players, setPlayers] = useState([{
       name: 'You',
-      score: 99
+      score: 99,
+      color: 'blue'
+    },
+    {
+      name: 'Volandemort',
+      score: 22,
+      color: 'brown'
+    },
+    {
+      name: 'Harry',
+      score: 34,
+      color: 'pink'
+    },
+    {
+      name: 'Hermiona',
+      score: 199,
+      color: 'green'
     }
   ])
 
   const RenderedAnswers = () => answers.map((a, i) => <p key={i} className='answer'>{a}</p>)
 
-  const renderedPlayers = players.map(p => <div><p>{p.name}</p><p>{p.score}</p></div>)
+  const renderedPlayers = players.map(p => <div><p className={`score ${p.color}`}>{p.score}</p><p>{p.name}</p></div>)
+
+  const timer = `00:42`
 
   return(
     <Layout>
-      <h2>You are in room #{router.query.id}  now!</h2>
+      <h2>Room #{router.query.id}</h2>
       <div className='roomContainer'>
         <img src={image} />
-        <div className='answersContainer'>
-          <h3>
-            Type your answer here
-          </h3>
-          <form>
-            <input className='input' type='text' />
-            <input className='btn' type='submit' />
-          </form>
-          <div className='answers'> 
-            <RenderedAnswers />
+        <div className='playersZone'>
+          <div className='timerAndPlayers'>
+            <div className='timer'>
+              <h3>{timer}</h3>
+              <p>left</p>
+            </div>
+            <div className='playersList'>
+              {renderedPlayers}
+            </div>
           </div>
-        </div>
-        <div className='playersList'>
-          {renderedPlayers}
+          <div className='answersContainer'>
+            <form>
+              <input className='input' type='text' placeholder='Type your answear here' />
+              <input className='btn' type='submit' />
+            </form>
+            <div className='answers'> 
+              <RenderedAnswers />
+            </div>
+          </div>
         </div>
       </div>
       <Link href={'/'}><a className='disconnectLink'> 
@@ -65,30 +88,33 @@ export default function Room() {
         }
 
         .roomContainer > img{
-          width: 360px;
-          height: 360px;
+          width: 520px;
+          min-height: 520px;
+          max-height: 560px;
           border: 3px inset lightseagreen;
+          margin-right: 40px;
+        }
+
+        .playersZone{
+          display: flex;
+          flex-direction: column;
         }
 
         .answersContainer{
-          min-height: 500px;
-          width: 403px;
+          margin-top: 60px;
+          min-height: 260px;
+          width: 800px;
           background: lightseagreen;
           color: #FFFFFF;
           border-radius: 10px;
           padding: 0px 2px;
-        }
-
-        .answersContainer > h3{
-          margin: 10px 12px;
-          font-size: 24px;
-          line-height: 28px;
+          flex: 1;
         }
 
         .answersContainer > form{
           margin: 12px 0px;
-          width: 400px;
-          height: 100px;
+          width: 798px;
+          height: 60px;
         }
 
         .answersContainer > form > input.input{
@@ -97,6 +123,7 @@ export default function Room() {
           font-size: 32px;
           color: #045294e6;
           padding: 12px;
+          border-radius: 16px;
         }
         
         .answersContainer > form > input.btn{
@@ -142,29 +169,78 @@ export default function Room() {
           height: 47px;
         }
 
-        .playersList{
+        .timerAndPlayers{
+          display: flex;
+          margin-top: 60px
+        }
+
+        .timer{
+          flex: 1;
+          width: 240px;
+          height: 240px;
+          border-radius: 50%;
+          background: linear-gradient(180deg, white 0% , #0BC5B9 60%);
+          color: #FFFFFF;
           display: flex;
           flex-direction: column;
-          background: lightseagreen;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .timer > h3{
+          font-size: 64px;
+          line-height: 75px;
+          margin: 20px 0 2px;
+        }
+
+        .timer > p{
+          font-size: 36px;
+          line-height: 42px;
+          margin: 0;
+        }
+
+        .playersList{
+          height: 260px;
+          display: flex;
+          flex-wrap: wrap;
           min-width: 150px;
           margin-left: 50px;
+          flex: 2;
         }
 
         .playersList > div {
+          flex: 50%;
           display: flex;
-          justify-content: space-between;
-          color: #FFFFFF;
+          color: #333;
           height: auto;
-          color: #FFFFFF;
           border-radius: 10px;
           border-bottom: 1px solid #ffffff59;
           padding: 4px 10px;
+          align-items: center;
         }
 
-        .playersList > div > * {
-          margin: 4px;
+        .score{
+          width: 50px;
+          height: 50px;
+          line-height: 50px;
+          border-radius: 50%;
+          text-align: center;
+          color: #FFFFFF;
+          margin-right: 20px;
         }
-      
+
+        .score.blue{
+          background: #00A2E2
+        }
+        .score.green{
+          background: #00E283
+        }
+        .score.brown{
+          background: #E26C00
+        }
+        .score.pink{
+          background: #F982FC
+        }
       `}</style>
     </Layout>
   )
