@@ -14,19 +14,17 @@ export default withSession(async (req, res) => {
       rowMode: 'array',
       text: query,
     });
-    console.log(result);
+    client.end();
     if(result.rowCount!==1){
-      throw "Invalid password or login";
+      throw {response:{status:418},data:{message:"Invalid password or login!"}};
     }
     let email = result.rows[0][1];
     let login = result.rows[0][0];
-    client.end();
     let user = { isLoggedIn: true, login, email };
     req.session.set("user", user);
     await req.session.save();
     res.json(user);
   } catch (error) {
-    console.log(error);
     const { response: fetchResponse } = error;
     res.status(fetchResponse?.status || 500).json(error.data);
   }

@@ -3,6 +3,7 @@ import useUser from "../lib/useUser";
 import Layout from "../components/Layout";
 import FormLogin from "../components/FormLogin";
 import fetchJson from "../lib/fetchJson";
+import hashCode from "../lib/util";
 import Link from "next/link";
 
 const Login = () => {
@@ -19,9 +20,9 @@ const Login = () => {
 
     const body = {
       username: e.currentTarget.username.value,
-      password: e.currentTarget.password.value,
+      password: hashCode(e.currentTarget.password.value),
     };
-
+    
     try {
       await mutateUser(
         fetchJson("/api/login", {
