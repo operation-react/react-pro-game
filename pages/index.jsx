@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const Home = () => {
 
-  const roomId = Math.random()*999999
+  const roomId = Math.ceil(Math.random()*999999)
 
   return(
     <Layout>
