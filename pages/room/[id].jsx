@@ -11,7 +11,23 @@ export default function Room() {
   const [answers, setAnswers] = useState(['Monkey', 'Bottle', 'Souvenir packages'])
   const [players, setPlayers] = useState([{
       name: 'You',
-      score: 99
+      score: 99,
+      color: 'blue'
+    },
+    {
+      name: 'Volandemort',
+      score: 22,
+      color: 'brown'
+    },
+    {
+      name: 'Harry',
+      score: 34,
+      color: 'pink'
+    },
+    {
+      name: 'Hermiona',
+      score: 199,
+      color: 'green'
     }
   ])
 
@@ -36,7 +52,7 @@ export default function Room() {
 
   return(
     <Layout>
-      <h2>You are in room #{router.query.id} now!</h2>
+      <h2>Room #{router.query.id}</h2>
       <div className='roomContainer'>
         <img src={image} />
         <div className='playersZone'>
@@ -65,9 +81,6 @@ export default function Room() {
               <RenderedAnswers />
             </div>
           </div>
-        </div>
-        <div>
-          {renderedPlayers}
         </div>
       </div>
       <Link href={'/'}><a className='disconnectLink'> 
