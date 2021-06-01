@@ -1,0 +1,9 @@
+.image-carousel {
+    &__items {
+        position: absolute;
+
+        &-container {
+            position: relative;
+        }
+    }
+}
