@@ -1,0 +1,57 @@
+.input {
+    display: flex;    
+    position: relative;
+
+    &__field {
+        outline: none;
+        border: none;
+        padding: 20px 10px 5px 0;
+        border-bottom: 1px solid var(--border-color);
+        width: 100%;
+    }
+
+    &__placeholder {
+        position: absolute;
+        left: 0;
+        top: 20px;
+        color: var(--border-color);
+        transition: 200ms;
+        pointer-events: none;
+    }
+
+    &__border {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: var(--accent-color);
+        transition: 200ms;
+        pointer-events: none;
+    }
+
+    &:hover &__placeholder {
+        color: var(--text-color);
+    }
+
+    &:hover &__border {
+        color: var(--text-color);
+    }
+
+    &--focus &__field {
+        caret-color: var(--accent-color);
+    }
+
+    &--focus &__border {
+        width: 100%;
+    }
+
+    &--focus &__placeholder, &--filled &__placeholder {
+        transform: translateY(-106%);
+        font-size: 12px;
+    }
+
+    &--focus &__placeholder, &--focus:hover &__placeholder {
+        color: var(--accent-color);
+    }
+}

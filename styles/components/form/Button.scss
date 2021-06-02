@@ -1,0 +1,19 @@
+.button {
+    width: 100%;
+    color: #fff;
+    background-color: var(--accent-color);
+    border: none;
+    padding: 10px 0;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 100ms;
+    outline: none;
+
+    &:hover {
+        background-color: #D77D7D;
+    }
+
+    &:focus {
+        box-shadow: 0 5px 10px #D77D7D;
+    }
+}

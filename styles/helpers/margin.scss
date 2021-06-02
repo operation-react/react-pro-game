@@ -1,0 +1,48 @@
+$from: 0;
+$to: 16;
+$step: 5;
+$directions: ( 't': 'top', 'r': 'right', 'b': 'bottom', 'l': 'left' );
+
+// util classes for margins
+//
+// m<direction>-<value>: means margin at specified <direction> equals <value> * $step px
+// e.g. mt-4 = margin-top: 20px
+//
+// mv-<value> - top and bottom margins
+// mh-<value> - left and right margins
+//
+@for $current from $from to $to {
+    @each $dir, $direction in $directions {
+        .m#{ $dir }-#{ $current } {
+            margin-#{ $direction }: #{ $current * $step }px;
+        }
+
+        .mv-#{ $current } {
+            margin: #{ $current * $step }px 0;
+        }
+        
+        .mh-#{ $current } {
+            margin: 0 #{ $current * $step }px;
+        }
+    }
+}
+
+// util classes for paddings
+//
+// same like margin classes
+//
+@for $current from $from to $to {
+    @each $dir, $direction in $directions {
+        .p#{ $dir }-#{ $current } {
+            padding-#{ $direction }: #{ $current * $step }px;
+        }
+
+        .pv-#{ $current } {
+            padding: #{ $current * $step }px 0;
+        }
+        
+        .ph-#{ $current } {
+            padding: 0 #{ $current * $step }px;
+        }
+    }
+}
