@@ -55,6 +55,7 @@
   },
   "dependencies": {
     "pg": "^8.6.0",
+    "react-circular-progressbar": "^2.0.4",
     "sass": "^1.34.0"
   }
 }

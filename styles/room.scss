@@ -107,29 +107,15 @@ h2{
   margin-top: 60px
 }
 
-.timer{
-  flex: 1;
-  width: 240px;
-  height: 240px;
-  border-radius: 50%;
-  background: linear-gradient(180deg, white 0% , #0BC5B9 60%);
-  color: #FFFFFF;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.timerBox {
+  width: 300px;
+  height: 300px;
+
+  color: white;
 }
 
-.timer > h3{
-  font-size: 64px;
-  line-height: 75px;
-  margin: 20px 0 2px;
-}
-
-.timer > p{
-  font-size: 36px;
-  line-height: 42px;
-  margin: 0;
+.timerTimeText {
+  font-size: 60px;
 }
 
 .playersList{
