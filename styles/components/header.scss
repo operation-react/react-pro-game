@@ -1,0 +1,86 @@
+$extendableLogoFirstWordWidth: 150px;
+$extendableLogoSecondWordWidth: 96px;
+
+#extendableLogo {
+  width: $extendableLogoFirstWordWidth + $extendableLogoSecondWordWidth;
+
+  font-weight: bold;
+  font-size: 24px;
+
+  margin-top: 20px;
+  margin-left: 50px;
+
+  cursor: pointer;
+  user-select: none;
+}
+
+#extendableLogo:hover {
+  #extendableLogoFirstWord {
+    width: $extendableLogoFirstWordWidth;
+  }
+
+  #extendableLogoSecondWord {
+    width: $extendableLogoSecondWordWidth;
+
+    padding-left: 2px;
+  }
+
+}
+
+#extendableLogoFirstWord {
+  display: inline-block;
+
+  width: 40px;
+  letter-spacing: 0.1px;
+
+  overflow: hidden;
+
+  color: white;
+  background-color: var(--accent-color);
+
+  transition-duration: 0.1s;
+}
+
+.extendableLogoFirstLetterInWord {
+  font-size: 48px;
+}
+
+#extendableLogoSecondWord {
+  display: inline-block;
+
+  width: 36px;
+  letter-spacing: 0.4px;
+  overflow: hidden;
+
+  color: var(--accent-color);
+  text-decoration: underline;
+
+  transition-duration: 0.5s;
+}
+
+#logoDropdown {
+  visibility: hidden;
+  position: absolute;
+
+  width: inherit;
+
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+  & > *{
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    border-bottom: 1px solid black;
+
+    &:hover {
+      color: white;
+      background-color: var(--accent-color);
+
+      cursor: pointer;
+    }
+  }
+}
