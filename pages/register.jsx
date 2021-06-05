@@ -16,7 +16,7 @@ const Register = () => {
   const [errorMsg, setErrorMsg] = useState("");
 
   async function handleSubmit(e) {
-    event.preventDefault();
+    e.preventDefault();
 //// TODO: Validation
     const body = {
       username: e.currentTarget.username.value,

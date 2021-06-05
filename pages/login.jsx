@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import useUser from "../lib/useUser";
 import Layout from "../components/Layout";
 import FormLogin from "../components/FormLogin";
@@ -16,7 +16,7 @@ const Login = () => {
   const [errorMsg, setErrorMsg] = useState("");
 
   async function handleSubmit(e) {
-    event.preventDefault();
+    e.preventDefault();
 
     const body = {
       username: e.currentTarget.username.value,

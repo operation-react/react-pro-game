@@ -1,0 +1,35 @@
+.root {
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.errorContainer {
+  background: #CD5C5C;
+  width: 500px;
+  height: 200px;
+  display: flex;  
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  & > h1{
+    font-size: 48px;
+    color: #eceff1e0;
+    text-shadow: 2px 2px 10px #2d333a96;
+  }
+  & > p{
+    font-size: 22px;
+    color: aliceblue;
+    padding: 4px 24px;
+    border-radius: 24px;
+    background: #cd5c5c;
+    box-shadow: 1px 1px 10px 0px #c0c0c05c;
+    & > a {
+      color: aliceblue;
+      text-decoration: none;
+      text-shadow: 1px 1px 5px #03a8f469;
+    }
+  }
+}

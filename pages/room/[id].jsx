@@ -15,9 +15,10 @@ export default function Room() {
   const [currentPercentage, setCurrentPercentage] = useState(0)
   const [isTimerStarted, setIsTimerStarted] = useState(false)
 
+
   const startTimer = () => {
     if(!isTimerStarted) {
-      setIsTimerStarted(true);
+      setIsTimerStarted(true)
 
       let startTime = Math.round(Date.now() / 1000) - currentTime;
       // The subtraction is needed for implementing pausing for the timer
@@ -61,8 +62,7 @@ export default function Room() {
 
   const RenderedAnswers = () => answers.map((a, i) => <p key={i} className='answer'>{a}</p>)
 
-  const renderedPlayers = players.map(p => <div><p className={`score ${p.color}`}>{p.score}</p><p>{p.name}</p></div>)
-  const timer = `00:42`
+  const RenderedPlayers = () => players.map((p, i) => <div key={i}><p className={`score ${p.color}`}>{p.score}</p><p>{p.name}</p></div>)
 
   const answersInput = useRef(null)
 
@@ -75,10 +75,11 @@ export default function Room() {
     answersInput.current.value = ''
     answersInput.current.placeholder = answers.length >=5 ? "It's enough for you in this round" : 'Type your answer here'
     }
-    ,[handleSubmit]
+    ,[answers]
   )
-  
+
   startTimer()
+
   return(
     <Layout>
       <h2>Room #{router.query.id}</h2>
@@ -93,7 +94,7 @@ export default function Room() {
                 start={startTimer}
               />
             <div className='playersList'>
-              {renderedPlayers}
+              <RenderedPlayers />
             </div>
           </div>
           <div className='answersContainer'>
