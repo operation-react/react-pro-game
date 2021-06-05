@@ -2,6 +2,8 @@ import { SWRConfig } from "swr";
 import fetch from "../lib/fetchJson";
 import '../styles/index.scss'
 import '../styles/room.scss'
+import '../styles/components/blocks/error.scss'
+
 
 function MyApp({ Component, pageProps }) {
   return (
