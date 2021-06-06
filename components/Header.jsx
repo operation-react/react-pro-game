@@ -1,20 +1,22 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import Link from "next/link";
-import useUser from "../lib/useUser";
-import { useRouter } from "next/router";
-import fetchJson from "../lib/fetchJson";
 
 const Header = () => {
-  useEffect(() => {
-    window.addEventListener('click', (e) => {
-      let logoDropdown = document.getElementById('logoDropdown');
+  const logoDropdown = useRef(null)
+  useEffect(() => {  
+    if(logoDropdown.current.style.visibility !=='hidden'){
+    window.addEventListener('click', (e) => toggleLogoDropdown(e)
       // If the event is not stopped
       // during bubbling (i.e. event doesn't come from logo)
       // hide the logo dropdown
-      logoDropdown.style.visibility = 'hidden';
-    });
-  });
-
+    )};
+  }, []);
+  const toggleLogoDropdown = (e) => {
+    const classes = logoDropdown.current.classList
+    classes.contains('hidden') ? classes.remove('hidden') : classes.add('hidden') 
+    e.stopPropagation();
+  }
+  
   return (
     <header>
       <div id='extendableLogo' onClick={(e) => toggleLogoDropdown(e)}>
@@ -26,24 +28,14 @@ const Header = () => {
           <span className='extendableLogoFirstLetterInWord'>R</span>
           <span>eact</span>
         </div>
-        <div id='logoDropdown'>
-          <div><Link href='/'>Home</Link></div>
+        <div id='logoDropdown' className='hidden' ref={logoDropdown}>
+          <Link href='/'><div>Home</div></Link>
           <div>Rules</div>
-          <div><Link href='/rooms'>Rooms</Link></div>
+          <Link href='/rooms'><div>Rooms</div></Link>
         </div>
       </div>
     </header>
   );
 };
-
-const toggleLogoDropdown = (logoClickEvent) => {
-  toggleVisibility(document.getElementById('logoDropdown'));
-
-  logoClickEvent.stopPropagation();
-}
-
-const toggleVisibility = (element) => {
-  element.style.visibility = element.style.visibility === 'hidden' ? 'visible' : 'hidden';
-}
 
 export default Header;
