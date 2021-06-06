@@ -29,7 +29,7 @@ const Header = () => {
           <span>eact</span>
         </div>
         <div id='logoDropdown' className='hidden' ref={logoDropdown}>
-        <Link href='/'><div>Home</div></Link>
+          <Link href='/'><div>Home</div></Link>
           <div>Rules</div>
           <Link href='/rooms'><div>Rooms</div></Link>
         </div>
