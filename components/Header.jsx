@@ -11,9 +11,10 @@ const Header = () => {
       // hide the logo dropdown
     )};
   }, []);
-  const toggleLogoDropdown = (logoClickEvent) => {
-    logoDropdown.current.classList.contains('hidden') ? logoDropdown.current.classList.remove('hidden') : logoDropdown.current.classList.add('hidden') 
-    logoClickEvent.stopPropagation();
+  const toggleLogoDropdown = (e) => {
+    const classes = logoDropdown.current.classList
+    classes.contains('hidden') ? classes.remove('hidden') : classes.add('hidden') 
+    e.stopPropagation();
   }
   
   return (
