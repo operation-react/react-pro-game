@@ -13,8 +13,10 @@ const Header = () => {
     })};
   }, []);
   const toggleLogoDropdown = (logoClickEvent) => {
-    logoDropdown.current.style.visibility = logoDropdown.current.style.visibility === 'hidden' ? 'visible' : 'hidden'
+    logoDropdown.current.classList.contains('hidden') ? logoDropdown.current.classList.remove('hidden') : logoDropdown.current.classList.add('hidden') 
     logoClickEvent.stopPropagation();
+    console.log('Cl')
+    console.log(logoDropdown.current.classList.contains('hidden'))
   }
   
   return (
@@ -28,10 +30,10 @@ const Header = () => {
           <span className='extendableLogoFirstLetterInWord'>R</span>
           <span>eact</span>
         </div>
-        <div id='logoDropdown' ref={logoDropdown}>
-          <div><Link href='/'>Home</Link></div>
+        <div id='logoDropdown' className='hidden' ref={logoDropdown}>
+        <Link href='/'><div>Home</div></Link>
           <div>Rules</div>
-          <div><Link href='/rooms'>Rooms</Link></div>
+          <Link href='/rooms'><div>Rooms</div></Link>
         </div>
       </div>
     </header>
