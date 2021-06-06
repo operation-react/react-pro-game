@@ -59,9 +59,8 @@ $extendableLogoSecondWordWidth: 96px;
 }
 
 #logoDropdown {
-  visibility: hidden;
   position: absolute;
-
+  visibility: visible;
   width: inherit;
 
   padding-left: 10px;
@@ -83,4 +82,8 @@ $extendableLogoSecondWordWidth: 96px;
       cursor: pointer;
     }
   }
+  &.hidden{
+    visibility: hidden;
+  }
 }
+
