@@ -15,8 +15,6 @@ const Header = () => {
   const toggleLogoDropdown = (logoClickEvent) => {
     logoDropdown.current.classList.contains('hidden') ? logoDropdown.current.classList.remove('hidden') : logoDropdown.current.classList.add('hidden') 
     logoClickEvent.stopPropagation();
-    console.log('Cl')
-    console.log(logoDropdown.current.classList.contains('hidden'))
   }
   
   return (
