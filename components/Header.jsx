@@ -5,12 +5,11 @@ const Header = () => {
   const logoDropdown = useRef(null)
   useEffect(() => {  
     if(logoDropdown.current.style.visibility !=='hidden'){
-    window.addEventListener('click', () => {
+    window.addEventListener('click', (e) => toggleLogoDropdown(e)
       // If the event is not stopped
       // during bubbling (i.e. event doesn't come from logo)
       // hide the logo dropdown
-      logoDropdown.current.style.visibility = 'hidden';
-    })};
+    )};
   }, []);
   const toggleLogoDropdown = (logoClickEvent) => {
     logoDropdown.current.classList.contains('hidden') ? logoDropdown.current.classList.remove('hidden') : logoDropdown.current.classList.add('hidden') 
