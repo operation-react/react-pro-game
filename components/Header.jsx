@@ -3,17 +3,19 @@ import Link from "next/link";
 
 const Header = () => {
   const logoDropdown = useRef(null)
+
   useEffect(() => {  
-    if(logoDropdown.current.style.visibility !=='hidden'){
-    window.addEventListener('click', (e) => toggleLogoDropdown(e)
+    if(logoDropdown.current.style.visibility !=='hidden') {
+      window.addEventListener('click', () => logoDropdown.current.classList.add('hidden')
       // If the event is not stopped
       // during bubbling (i.e. event doesn't come from logo)
       // hide the logo dropdown
-    )};
-  }, []);
+      )};
+    });
+
   const toggleLogoDropdown = (e) => {
-    const classes = logoDropdown.current.classList
-    classes.contains('hidden') ? classes.remove('hidden') : classes.add('hidden') 
+    const classes = logoDropdown.current.classList;
+    classes.contains('hidden') ? classes.remove('hidden') : classes.add('hidden');
     e.stopPropagation();
   }
   
