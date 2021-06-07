@@ -2,8 +2,10 @@ import { SWRConfig } from "swr";
 import fetch from "../lib/fetchJson";
 import '../styles/index.scss'
 import '../styles/room.scss'
+import '../styles/rooms.scss'
 import '../styles/components/blocks/error.scss'
-import '../styles/components/header.scss';
+import '../styles/components/header.scss'
+import '../styles/components/roomContainer.scss'
 
 function MyApp({ Component, pageProps }) {
   return (

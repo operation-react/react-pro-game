@@ -1,0 +1,61 @@
+$mainBg: var(--accent-color);
+$lightTxt: white;
+$lightGrey: var(--border-color);
+
+.rooms{
+  padding: 66px 0 10px 50px;
+  display: flex;
+}
+
+.roomsListSection{
+  width: 71%;
+}
+
+.subheader > span{
+  border-bottom: 1px solid $mainBg;
+  font-weight: 400;
+  &:first-child{
+    background: $mainBg;
+    color: $lightTxt;
+  }
+  &:last-child{
+    color: $lightGrey;
+  }
+}
+
+.roomsArea{
+  height: 740px;
+  width: 556px;
+  overflow-y: scroll;
+  &::-webkit-scrollbar
+  {
+      width: 8px;
+      background-color: #DEDEDE;
+  }
+  &::-webkit-scrollbar-thumb
+  {
+      width: 8px;
+      background-color: $mainBg;
+  }
+}
+
+.imgsSection{
+  width: 100%;
+}
+
+.createRoomBtn{
+  margin: 10px;
+  display: block;
+  width: 226px;
+  height: 40px;
+  padding: 9px 49px;
+  font-weight: 700;
+  color: $lightTxt;
+  background: $mainBg;
+  border: none;
+}
+
+.roomsOnImgs{
+  width: 100%;
+  height: 100%;
+}

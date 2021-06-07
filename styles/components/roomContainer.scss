@@ -1,0 +1,28 @@
+@import '../rooms.scss';
+
+.roomBox{
+  width: 540px;
+  height: 150px;
+  border: 2px solid $mainBg;
+  color: $mainBg;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+.roomInfo{
+  display: flex;
+  justify-content: space-between;
+  padding: 33px 18px;
+}
+
+.connectBtn{
+  width: 160px;
+  height: 40px;
+  color: $lightTxt;
+  background: $mainBg;
+  border: none;
+}

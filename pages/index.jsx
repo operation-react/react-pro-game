@@ -32,7 +32,7 @@ export default function Home() {
     return (
       <div>
         <Header />
-        <div className="h-100 flex align-center valign-center">
+        <div className="h-100 flex align-center valign-center login">
             <ImageCarousel startAngle={ (7 / 4) * Math.PI } images={ carouselImages } />
             {/* <CircleImage src="/img/intro-6.png" width={ 107 } height={ 107 } /> */}
             {<Card>
