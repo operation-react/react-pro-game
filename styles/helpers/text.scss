@@ -1,0 +1,22 @@
+$headerFontSizes: (
+    'h1': 48,
+    'h2': 36,
+    'h3': 24,
+    'h4': 18,
+    'h5': 16,
+    'h6': 14
+);
+
+// h1, .fs-h1 { font-size: 48px; }
+//
+// for each header
+//
+@each $header, $fontSize in $headerFontSizes {
+    #{ $header }, .fs-#{ $header } {
+        font-size: #{ $fontSize }px;
+    }
+}
+
+p {
+    margin: 0;
+}

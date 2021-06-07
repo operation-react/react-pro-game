@@ -2,6 +2,7 @@
 
 @import "./helpers/display";
 @import "./helpers/margin";
+@import "./helpers/text";
 
 @import "./themes/light";
 
@@ -10,6 +11,8 @@
 @import "./components/blocks/ImageCarousel";
 @import "./components/form/Input";
 @import "./components/form/Button";
+@import "./components/decor";
+@import "./components/container";
 
 *,
 *::before,
