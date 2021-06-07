@@ -1,3 +1,5 @@
+@import './rooms.scss';
+
 $bgColor: lightseagreen;
 
 h2{
@@ -6,7 +8,7 @@ h2{
   justify-content: center;
   margin-top: -70px;
   margin-bottom: 100px;
-  color: white;
+  color: $mainBg;
   white-space: break-spaces;
 }
 
@@ -27,6 +29,7 @@ h2{
 .playersZone{
   display: flex;
   flex-direction: column;
+  margin-left: 20px;
 }
 
 .answersContainer{
@@ -76,11 +79,9 @@ h2{
 
 .disconnectLink{
   display: flex;
+  margin: 20px auto;
   justify-content: space-around;
   align-items: center;
-  position: absolute;
-  bottom: 30px;
-  left: 60px;
   text-align: end;
   padding-right: 30px;
   background: $bgColor;

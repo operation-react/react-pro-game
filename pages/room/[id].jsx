@@ -84,7 +84,13 @@ export default function Room() {
     <Layout>
       <h2>Room #{router.query.id}</h2>
       <div className='roomContainer'>
-        <img src={image} />
+        <div>
+          <img src={image} />
+          <Link href={'/'}><a className='disconnectLink'> 
+            <img className='disconnectIcon' src='https://image.flaticon.com/icons/png/128/1824/1824266.png' />
+            Disconect
+          </a></Link>
+        </div>
         <div className='playersZone'>
           <div className='timerAndPlayers'>
               <Timer
@@ -115,10 +121,6 @@ export default function Room() {
           </div>
         </div>
       </div>
-      <Link href={'/'}><a className='disconnectLink'> 
-        <img className='disconnectIcon' src='https://image.flaticon.com/icons/png/128/1824/1824266.png' />
-        Disconect
-      </a></Link>
     </Layout>
   )
 }
