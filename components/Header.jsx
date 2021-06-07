@@ -5,13 +5,14 @@ const Header = () => {
   const logoDropdown = useRef(null)
 
   useEffect(() => {  
-    if(logoDropdown.current.style.visibility !=='hidden') {
-      window.addEventListener('click', () => logoDropdown.current.classList.add('hidden')
-      // If the event is not stopped
-      // during bubbling (i.e. event doesn't come from logo)
-      // hide the logo dropdown
-      )};
+    window.addEventListener('click', (e) => {
+      if(!e.target.closest('#extendableLogo')) {
+        document.getElementById('logoDropdown').classList.add('hidden');
+      } else {
+        document.getElementById('logoDropdown').classList.remove('hidden');
+      }
     });
+  });
 
   const toggleLogoDropdown = (e) => {
     const classes = logoDropdown.current.classList;
@@ -21,7 +22,7 @@ const Header = () => {
   
   return (
     <header>
-      <div id='extendableLogo' onClick={(e) => toggleLogoDropdown(e)}>
+      <div id='extendableLogo'>
         <div id='extendableLogoFirstWord'>
           <span className='extendableLogoFirstLetterInWord'>O</span>
           <span>peration</span>
