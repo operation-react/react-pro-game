@@ -9,12 +9,14 @@ export default function Timer(props) {
         value={ props.currentPercentage }
         strokeWidth={3}
         background
+        backgroundPadding={3}
         styles={buildStyles({
           pathColor: 'white',
-          backgroundColor: 'lightseagreen',
+          backgroundColor: '#CD5C5C',
           trailColor: 'transparent',
           textColor: '#D7E0FF',
-          strokeLinecap: 'round'
+          strokeLinecap: 'round',
+          pathTransitionDuration: 0.5
         })}>
         <span className='timerTimeText'>{getSecondsToClockString(props.fullTime - props.currentTime)}</span>
       </CircularProgressbarWithChildren>

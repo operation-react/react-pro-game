@@ -88,7 +88,7 @@ export default function Room() {
           <img src={image} />
           <Link href={'/'}><a className='disconnectLink'> 
             <img className='disconnectIcon' src='https://image.flaticon.com/icons/png/128/1824/1824266.png' />
-            Disconect
+            Disconnect
           </a></Link>
         </div>
         <div className='playersZone'>
