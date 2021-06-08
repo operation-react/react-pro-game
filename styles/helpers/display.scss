@@ -21,3 +21,25 @@
 .valign-start {
     align-items: flex-start;
 }
+
+.dir-column {
+    flex-direction: column;
+}
+
+.bp-flex-large {
+    display: none;
+}
+
+.bp-block-large {
+    display: none;
+}
+
+@media (min-width: 1520px) {
+    .bp-flex-large {
+        display: flex;
+    }
+
+    .bp-block-large {
+        display: block;
+    }
+}

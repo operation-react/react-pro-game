@@ -1,44 +1,48 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import classes from "../lib/classes";
 
 const Header = () => {
-  const logoDropdown = useRef(null)
+    const [ expanded, setExpanded ] = useState(false);
 
-  useEffect(() => {  
-    window.addEventListener('click', (e) => {
-      if(!e.target.closest('#extendableLogo')) {
-        document.getElementById('logoDropdown').classList.add('hidden');
-      } else {
-        document.getElementById('logoDropdown').classList.remove('hidden');
-      }
+    useEffect(() => {
+        const onBodyClick = (event) => {
+            if (!event.target.closest(".app-header")) {
+                setExpanded(false);
+            }
+        };
+
+        document.body.addEventListener("click", onBodyClick);
+
+        return () => document.body.removeEventListener("click", onBodyClick);
+    }, []);
+
+    const logoClassName = classes({
+        "expanded": expanded
     });
-  });
+    const dropdownClassName = classes({
+        "hidden": !expanded
+    });
 
-  const toggleLogoDropdown = (e) => {
-    const classes = logoDropdown.current.classList;
-    classes.contains('hidden') ? classes.remove('hidden') : classes.add('hidden');
-    e.stopPropagation();
-  }
-  
-  return (
-    <header>
-      <div id='extendableLogo'>
-        <div id='extendableLogoFirstWord'>
-          <span className='extendableLogoFirstLetterInWord'>O</span>
-          <span>peration</span>
-        </div>
-        <div id='extendableLogoSecondWord'>
-          <span className='extendableLogoFirstLetterInWord'>R</span>
-          <span>eact</span>
-        </div>
-        <div id='logoDropdown' className='hidden' ref={logoDropdown}>
-          <Link href='/'><div>Home</div></Link>
-          <div>Rules</div>
-          <Link href='/rooms'><div>Rooms</div></Link>
-        </div>
-      </div>
-    </header>
-  );
+    return (
+        <header className="app-header" onClick={ () => setExpanded(true) }>
+            <div id='extendableLogo' className={ logoClassName }>
+                <div id='extendableLogoFirstWord'>
+                    <span className='extendableLogoFirstLetterInWord'>O</span>
+                    <span>peration</span>
+                </div>
+                <div id='extendableLogoSecondWord'>
+                    <span className='extendableLogoFirstLetterInWord'>R</span>
+                    <span>eact</span>
+                </div>
+                <div id='logoDropdown' className={ dropdownClassName }>
+                    <Link href='/'><div>Home</div></Link>
+                    <div>Rules</div>
+                    <Link href='/rooms'><div>Rooms</div></Link>
+                </div>
+            </div>
+        </header>
+    );
 };
 
 export default Header;

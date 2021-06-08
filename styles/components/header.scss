@@ -14,7 +14,7 @@ $extendableLogoSecondWordWidth: 96px;
   user-select: none;
 }
 
-#extendableLogo:hover {
+#extendableLogo:hover, #extendableLogo.expanded {
   #extendableLogoFirstWord {
     width: $extendableLogoFirstWordWidth;
   }
@@ -63,27 +63,29 @@ $extendableLogoSecondWordWidth: 96px;
   visibility: visible;
   width: inherit;
 
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-bottom: 10px;
-
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
-  & > *{
-    padding-top: 5px;
-    padding-bottom: 5px;
+  transform-origin: top left;
+  transition: 200ms;
 
-    border-bottom: 1px solid black;
+  & > * {
+    padding: 15px 20px;
+    
+    &:not(:last-child) {
+      border-bottom: 1px solid black;
+    }
 
     &:hover {
       color: white;
       background-color: var(--accent-color);
-
       cursor: pointer;
     }
   }
+
   &.hidden{
     visibility: hidden;
+    opacity: 0;
+    transform: scaleX(.8);
   }
 }
 
