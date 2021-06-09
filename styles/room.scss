@@ -8,6 +8,9 @@ h2{
   margin-bottom: 100px;
   color: $mainBg;
   white-space: break-spaces;
+  &.voting{
+    margin: 0;
+  }
 }
 
 .roomContainer{
@@ -95,12 +98,15 @@ h2{
   text-decoration: none;
   color: #FFFFFF;
   cursor: pointer;
-
+  border: 1px solid var(--accent-color);
   transition-duration: 0.2s;
-
   &:hover {
     color: var(--accent-color);
     background-color: white;
+  }
+  &.voting{
+    align-self: flex-start;
+    margin: 12px
   }
 }
 
@@ -117,13 +123,11 @@ h2{
 .timerBox {
   width: 300px;
   height: 300px;
-
   color: white;
 }
 
 .timerTimeText {
   font-size: 60px;
-
   user-select: none;
 }
 

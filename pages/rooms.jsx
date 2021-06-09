@@ -77,12 +77,20 @@ export default function Rooms() {
                         <a className='createRoomBtn'>
                             Create room
               </a>
+<<<<<<< HEAD
                     </Link>
                     <div className='roomsOnImgs'>
                         <div className='topSector'>
 
                         </div>
                     </div>
+=======
+            </Link>
+            <div className='roomsOnImgs'>
+                <div>
+                </div>
+                <div>
+>>>>>>> front-update
                 </div>
             </div>
         </div>

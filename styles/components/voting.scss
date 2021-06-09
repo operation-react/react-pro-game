@@ -1,0 +1,88 @@
+@import '../rooms.scss';
+
+main.voting{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  margin-top: -50px;
+}
+
+.infoContainer{
+  display: flex;
+  height: 19%;
+  min-height: 300px;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  margin: 30px auto;
+  &>img{
+    height: 100%;
+    width: auto;
+  }
+  &>div:last-child{
+    height: 240px;
+    width: 240px;
+  }
+}
+
+.voting-tips{
+  border-bottom: 2px solid $mainBg;
+  width: fit-content;
+  margin-left: -170px;
+  @media (max-width: 1400px) {
+    margin-left: -70px;
+  }
+}
+
+.answers-block{
+  width: 100%;
+  height: 400px;
+  border-radius: 10px;
+  border: 4px solid $mainBg;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  background: url('../../public/img/bg.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.answers-box{
+  width: 97%;
+  height: 97%;
+  padding: 8px 12px;
+  background: #afc1c0e6;
+  border-radius: 14px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.answersForVoting{
+  margin: 7px 10px;
+  width: fit-content;
+  height: fit-content;
+  font-size: 24px;
+  line-height: 28px;
+  border-radius: 50px;
+  padding: 12px 18px;
+  border: 3px solid $mainBg;
+  background: #cd5c5cbf;
+  color: white;
+  cursor: pointer;
+  transition: all .4s ease-in-out;
+  &:hover{
+    background: $mainBg;
+    border: 3px solid white;
+    color: white;
+    transition: all .2s ease-in-out;
+  }
+  &.active{
+    border: 3px solid goldenrod;
+    color: #ffe6a6;
+    transition: all .2s ease-in-out;
+  }
+}

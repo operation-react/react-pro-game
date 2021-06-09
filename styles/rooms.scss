@@ -52,11 +52,35 @@ $lightGrey: var(--border-color);
   font-weight: 700;
   color: $lightTxt;
   background: $mainBg;
-  border: none;
   text-align: center;
+  background: $mainBg;
+  border: 1px solid $mainBg;
+  transition: all .2s ease-in;
+  cursor: pointer;
+  &:hover {
+    color: $mainBg;
+    background-color: white;
+    transition: all .2s ease-in;
+  }
 }
 
 .roomsOnImgs{
   width: 100%;
   height: 100%;
+  & > div{
+    width: 100%;
+    height: 420px;
+    &:first-child{
+      background: url('../public/img/topImg.png');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    &:last-child{
+      background: url('../public/img/bottomImg.png');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  }
 }
