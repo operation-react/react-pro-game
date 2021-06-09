@@ -1,14 +1,13 @@
-import { useCallback, useState } from 'react'
+import { useCallback, useState, useEffect } from 'react'
 import Link from 'next/link'
 import {useRouter} from 'next/router'
 
-import Timer from '../../components/Timer'
+import Timer from '../Timer'
 
-const VotingPage = () => {
+const VotingPage = ({ changeStatus }) => {
   const [image, setImage] = useState('https://artbreeder.b-cdn.net/imgs/22af0c979142253e217599dd.jpeg')
   const [answers, setAnswers] = useState(['Monkey', 'Bottle', 'Souvenir packages'])
   const [chosenAnswers, setChosenAnswers] = useState([])
-
   const chooseAnswer = useCallback((a) => {
     chosenAnswers.includes(a) ? 
     setChosenAnswers(prev => prev.filter(i => i!==a)) : 
@@ -27,6 +26,7 @@ const VotingPage = () => {
   const [currentTime, setCurrentTime] = useState(0)
   const [currentPercentage, setCurrentPercentage] = useState(0)
   const [isTimerStarted, setIsTimerStarted] = useState(false)
+  useEffect(() => currentTime===fullTime ? changeStatus(true) : false, [currentTime])
 
   const startTimer = useCallback(() => {
     if(!isTimerStarted) {
@@ -78,6 +78,5 @@ const VotingPage = () => {
     </main>
   )
 }
-
 
 export default VotingPage;
