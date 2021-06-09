@@ -25,5 +25,12 @@
   height: 40px;
   color: $lightTxt;
   background: $mainBg;
-  border: none;
+  border: 1px solid $mainBg;
+  transition: all .2s ease-in;
+  cursor: pointer;
+  &:hover {
+    color: $mainBg;
+    background-color: white;
+    transition: all .2s ease-in;
+  }
 }

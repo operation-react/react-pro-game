@@ -73,8 +73,9 @@ export default function Rooms() {
               </a>
             </Link>
             <div className='roomsOnImgs'>
-                <div className='topSector'>
-
+                <div>
+                </div>
+                <div>
                 </div>
             </div>
           </div>

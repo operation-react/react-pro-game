@@ -6,6 +6,7 @@ import '../styles/rooms.scss'
 import '../styles/components/blocks/error.scss'
 import '../styles/components/header.scss'
 import '../styles/components/roomContainer.scss'
+import '../styles/components/voting.scss'
 
 function MyApp({ Component, pageProps }) {
   return (
