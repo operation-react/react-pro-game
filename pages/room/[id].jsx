@@ -5,7 +5,6 @@ import {useRouter} from 'next/router'
 import Layout from '../../components/Layout'
 import VotingPage from '../../components/VotingPage'
 import RoomPage from '../../components/Room'
-import Timer from '../../components/Timer'
 
 export default function Room() {
   const [gameStatus, setGameStatus] = useState(true)
