@@ -10,10 +10,11 @@ export default withSession(async (req, res) => {
         email,
         password
     } = await req.body;
+
     const hashedPassword = await bcrypt.hash(password, HASH_SALT_ROUNDS);
     const queryInsert = `
         INSERT INTO accounts (username, email, password, created_on, last_login)
-        VALUES ('${ username }', '${ email }', ${ hashedPassword }, NOW(), NOW())
+        VALUES ('${ username }', '${ email }', '${ hashedPassword }', NOW(), NOW())
     `;
     const querySelect = `
         SELECT
@@ -30,14 +31,14 @@ export default withSession(async (req, res) => {
     try {
         await client.connect();
 
-        const result = await client.query({
+        let result = await client.query({
             rowMode: 'array',
             text: querySelect,
         });
 
         if (result.rowCount !== 0) {
             throw {
-                response: { status: 418 },
+                response: { status: 400 },
                 data: { message: "Invalid username or email" }
             };
         }
@@ -49,10 +50,9 @@ export default withSession(async (req, res) => {
 
         client.end();
 
-        const [ login, email ] = result.rows[0];
         const user = {
             isLoggedIn: true,
-            login: login,
+            login: username,
             email: email
         };
         

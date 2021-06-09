@@ -54,4 +54,19 @@
     &--focus &__placeholder, &--focus:hover &__placeholder {
         color: var(--accent-color);
     }
+
+    &--error &__placeholder,
+    &--error.input--focus &__placeholder {
+        color: var(--error-color);
+    }
+
+    &--error &__border,
+    &--error.input--focus &__border {
+        background-color: var(--error-color);
+    }
+
+    &--error &__field,
+    &--error.input--focus &__field {
+        border-color: var(--error-color);
+    }
 }

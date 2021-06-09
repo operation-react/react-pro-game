@@ -18,6 +18,7 @@ export default function Input(props) {
         "input": true,
         "input--focus": focused,
         "input--filled": value,
+        "input--error": props.error,
         [props.className]: props.className
     });
 
@@ -30,7 +31,7 @@ export default function Input(props) {
                 onFocus={ () => setFocused(true) }
                 onBlur={ () => setFocused(false) }
                 className="input__field" />
-            <span className="input__placeholder">{ props.placeholder ?? props.name }</span>
+            <span className="input__placeholder">{ props.error ?? props.placeholder ?? props.name }</span>
             <span className="input__border"></span>
         </label>
     );

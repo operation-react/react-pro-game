@@ -3,6 +3,12 @@ import withSession from "../../lib/session";
 import { client } from "./sqlHelper/client"
 
 export default withSession(async (req, res) => {
+    if (req.method !== "POST") {
+        res.status(405).end("Use POST method for this route");
+
+        return;
+    }
+
     const {
         username,
         password: purePassword
@@ -30,7 +36,7 @@ export default withSession(async (req, res) => {
 
         if (result.rowCount !== 1) {
             throw {
-                response: { status: 418 },
+                response: { status: 400 },
                 data: { message: "Invalid password or login!" }
             };
         }
@@ -40,7 +46,7 @@ export default withSession(async (req, res) => {
 
         if (!isMatched) {
             throw {
-                response: { status: 418 },
+                response: { status: 400 },
                 data: { message: "Invalid password or login!" }
             };
         }
@@ -54,9 +60,8 @@ export default withSession(async (req, res) => {
         req.session.set("user", user);
         await req.session.save();
 
-        res.json(user);
+        res.status(200).json(user);
     } catch (error) {
-        const { response: fetchResponse } = error;
-        res.status(fetchResponse?.status || 500).json(error.data);
+        res.status(error.response?.status || 500).json(error.data);
     }
 });

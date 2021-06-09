@@ -1,9 +1,10 @@
+import { useState } from "react";
 import Card from "../components/blocks/Card";
-import CircleImage from "../components/blocks/CircleImage";
 import ImageCarousel from "../components/blocks/ImageCarousel";
 import Button from "../components/form/Button";
 import Input from "../components/form/Input";
 import Header from '../components/Header';
+import { makeValidator, validate, Validators } from "../lib/validation";
 
 const carouselImages = [{
     src: "/img/intro-1.png",
@@ -29,8 +30,51 @@ const carouselImages = [{
 }];
 
 const START_ANGLE = (85 / 52) * Math.PI;
+const FORM_VALIDATION_RULES = {
+    username: makeValidator(Validators.notEmpty, "Username should not be empty"),
+    email: makeValidator(Validators.email, "Incorrect email"),
+    password: makeValidator(Validators.notEmpty, "Password should not be empty")
+};
 
 export default function Home() {
+    const [ formErrors, setFormErrors ] = useState({});
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+
+        const { target: form } = event;
+        const formData = new FormData(form);
+        const validationResult = validate(formData, FORM_VALIDATION_RULES);
+
+        if (validationResult !== true) {
+            setFormErrors(validationResult);
+            return;
+        }
+
+        const response = await fetch(form.action, {
+            method: form.method,
+            body: JSON.stringify(Object.fromEntries(formData)),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+        const json = await response.json();
+
+        console.log(json);
+    };
+    const handleChange = (event) => {
+        const { target } = event;
+
+        if (target.name in formErrors) {
+            const validationResult = FORM_VALIDATION_RULES[target.name](target.value);
+
+            if (validationResult === true) {
+                const newFormErrors = { ...formErrors };
+                delete newFormErrors[target.name];
+                setFormErrors(newFormErrors);
+            }
+        }
+    };
+
     return (
         <div className="flex dir-column h-100">
             <Header />
@@ -53,10 +97,22 @@ export default function Home() {
                         </p>
                     </div>
                     <Card className="mt-15">
-                        <Input className="mb-2" placeholder="Your username" name="username" />
-                        <Input className="mb-2" placeholder="Your email" name="email" />
-                        <Input className="mb-6" placeholder="Your password" type="password" name="password" />
-                        <Button type="submit" text="Join us" />
+                        <form action="/api/register" method="POST" onSubmit={ handleSubmit } onChange={ handleChange }>
+                            <Input className="mb-2"
+                                placeholder="Your username"
+                                name="username"
+                                error={ formErrors.username } />
+                            <Input className="mb-2"
+                                placeholder="Your email"
+                                name="email"
+                                error={ formErrors.email } />
+                            <Input className="mb-6"
+                                placeholder="Your password"
+                                name="password"
+                                type="password"
+                                error={ formErrors.password } />
+                            <Button type="submit" text="Join us" />
+                        </form>
                     </Card>
                 </div>
             </div>
