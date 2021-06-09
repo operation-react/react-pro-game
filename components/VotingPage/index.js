@@ -13,8 +13,7 @@ const VotingPage = () => {
     chosenAnswers.includes(a) ? 
     setChosenAnswers(prev => prev.filter(i => i!==a)) : 
     setChosenAnswers(prev => [...prev, a])
-    console.log(chosenAnswers.includes(a))
-  }, [])
+  }, [chosenAnswers])
   const RenderedAnswers = () => answers.map((a, i) => 
     <p  key={i} 
         className={`answersForVoting ${chosenAnswers.includes(a) ? 'active' : ''}`} 
