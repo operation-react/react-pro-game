@@ -58,10 +58,10 @@ export default function Rooms() {
                     <h3 className='subheader'>
                         <span>
                             Explore
-              </span>
+                        </span>
                         <span>
                             &nbsp;available rooms or create your own one
-              </span>
+                        </span>
                     </h3>
                     <div className='roomsArea'>
                         {rooms.map(r =>
@@ -76,21 +76,14 @@ export default function Rooms() {
                     <Link href={`/room/${newRoom}`}>
                         <a className='createRoomBtn'>
                             Create room
-              </a>
-<<<<<<< HEAD
+                        </a>
                     </Link>
                     <div className='roomsOnImgs'>
-                        <div className='topSector'>
-
+                        <div>
+                        </div>
+                        <div>
                         </div>
                     </div>
-=======
-            </Link>
-            <div className='roomsOnImgs'>
-                <div>
-                </div>
-                <div>
->>>>>>> front-update
                 </div>
             </div>
         </div>
