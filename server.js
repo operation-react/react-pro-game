@@ -21,12 +21,18 @@ io.on("connect", (socket) => {
     });
 });
 
-io.of(/^\/room\/[0-9A-F]{8}-[0-9A-F]{4}-4[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/)
+io.of(/^\/room\/([a-zA-Z0-9-]+)$/)
 .on("connect", (socket) => {
     const { nsp } = socket;
-    const [ , id ] = /\/room\/([a-zA-Z0-9-])/.exec(nsp);
+    const result = /\/room\/([a-zA-Z0-9-]+)/.exec(nsp.name);
 
-    console.log("Hello world");
+    console.log("> ", nsp.name);
+
+    if (!result) {
+        return;
+    }
+
+    const id = result[0];
 
     socket.emit("hello", {
         message: "Here is room",
@@ -50,7 +56,7 @@ nextApp.prepare().then(() => {
 
         res.status(id in rooms ? 200 : 404).json({
             ok: id in rooms,
-            room: rooms[id] ?? null
+            room: rooms[id] || null
         });
     });
 

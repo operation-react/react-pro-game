@@ -58,9 +58,8 @@ export default function Room() {
     ])
 
     useEffect(() => {
-        const socket = io("/room/" + router.query.id);
-
-        console.log(socket);
+        const path = "/room/" + router.query.id;
+        const socket = io(path);
 
         socket.on("hello", response => {
             console.log(response);
@@ -81,9 +80,7 @@ export default function Room() {
     useEffect(() => {
         answersInput.current.value = ''
         answersInput.current.placeholder = answers.length >= 5 ? "It's enough for you in this round" : 'Type your answer here'
-    }
-        , [answers]
-    )
+    }, [ answers ]);
 
     return (
         <Layout>
