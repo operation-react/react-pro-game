@@ -137,3 +137,8 @@ $extendableLogoSecondWordWidth: 96px;
   border: 2px solid #CD5C5C !important; // !important to override Next's
                                           // <Image /> inline border
 }
+
+.app-header {
+  position: relative;
+  z-index: 3;
+}

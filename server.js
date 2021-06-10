@@ -10,7 +10,7 @@ const nextHandler = nextApp.getRequestHandler();
 const port = 3000;
 
 const rooms = {
-    "room_1": {
+    "abc": {
         users: []
     }
 };
@@ -26,18 +26,36 @@ io.of(/^\/room\/([a-zA-Z0-9-]+)$/)
     const { nsp } = socket;
     const result = /\/room\/([a-zA-Z0-9-]+)/.exec(nsp.name);
 
-    console.log("> ", nsp.name);
-
     if (!result) {
         return;
     }
 
-    const id = result[0];
+    const id = result[1];
 
-    socket.emit("hello", {
-        message: "Here is room",
-        id: id
+    socket.emit("init", {
+        room: rooms[id]
     });
+
+    socket.on("user-connected", (message) => {
+        const newUser = {
+            id: message.id,
+            name: message.name,
+            score: 0
+        };
+        rooms[id].users.push(newUser);
+
+        socket.emit("user-connected", { user: newUser });
+
+        if (rooms[id].users.length >= 6) {
+            const imageNumber = parseInt(1 + Math.random() * 10);
+
+            socket.emit("start-play", {
+                image: `/img/${ imageNumber }.jpeg`
+            });
+        }
+    });
+
+    socket.on
 });
 
 nextApp.prepare().then(() => {
