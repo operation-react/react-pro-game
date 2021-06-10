@@ -49,6 +49,7 @@ export default function Room({ changeStatus }) {
 
         socket.on("user-connected", (message) => {
             const newRoomData = {
+                users: [],
                 ...roomData
             };
             newRoomData.users.push(message.user);
