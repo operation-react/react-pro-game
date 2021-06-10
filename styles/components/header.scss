@@ -90,3 +90,48 @@ $extendableLogoSecondWordWidth: 96px;
   }
 }
 
+#rulesModal {
+  width: 800px;
+  height: 500px;
+
+  margin: auto;
+
+  overflow: auto;
+
+  background: transparentize(white, 0.4);
+
+  & > *{
+    margin-bottom: 120px;
+  }
+
+  & .rulesHorizontalSection {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  & .rulesVerticalSection {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+
+    & > * {
+      margin-top: 40px;
+    }
+  }
+
+  & .underline-text {
+    box-shadow: 0 2px 0 0 var(--accent-color);
+  }
+
+  & span {
+    font-size: 20px;
+  }
+}
+
+.border-2px-red {
+  border-radius: 3px;
+  border: 2px solid #CD5C5C !important; // !important to override Next's
+                                          // <Image /> inline border
+}
