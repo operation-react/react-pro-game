@@ -2,16 +2,16 @@ $extendableLogoFirstWordWidth: 150px;
 $extendableLogoSecondWordWidth: 96px;
 
 #extendableLogo {
-  width: $extendableLogoFirstWordWidth + $extendableLogoSecondWordWidth;
-
   font-weight: bold;
   font-size: 24px;
 
-  margin-top: 20px;
-  margin-left: 50px;
+  padding-top: 20px;
+  padding-left: 50px;
 
   cursor: pointer;
   user-select: none;
+
+  position: relative;
 }
 
 #extendableLogo:hover, #extendableLogo.expanded {
@@ -62,7 +62,9 @@ $extendableLogoSecondWordWidth: 96px;
   position: absolute;
   visibility: visible;
   width: inherit;
+  font-size: 18px;
 
+  width: 100%;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
@@ -73,7 +75,7 @@ $extendableLogoSecondWordWidth: 96px;
     padding: 15px 20px;
     
     &:not(:last-child) {
-      border-bottom: 1px solid black;
+      border-bottom: 1px solid #9f9f9f;
     }
 
     &:hover {
@@ -86,7 +88,7 @@ $extendableLogoSecondWordWidth: 96px;
   &.hidden{
     visibility: hidden;
     opacity: 0;
-    transform: scaleX(.8);
+    transform: scale(.95);
   }
 }
 

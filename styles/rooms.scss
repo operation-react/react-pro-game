@@ -24,9 +24,9 @@ $lightGrey: var(--border-color);
 }
 
 .roomsArea{
-  height: 740px;
   width: 556px;
-  overflow-y: scroll;
+  overflow-y: auto;
+
   &::-webkit-scrollbar
   {
       width: 8px;
@@ -44,7 +44,7 @@ $lightGrey: var(--border-color);
 }
 
 .createRoomBtn{
-  margin: 10px;
+  margin: 10px 10px 10px 0;
   display: block;
   width: 226px;
   height: 40px;

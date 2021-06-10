@@ -42,12 +42,22 @@ const defaultRoomsInfo = [
 
 export default function Rooms() {
     const newRoom = Math.ceil(Math.random() * 999999)
-    const [rooms, setRooms] = useState(defaultRoomsInfo)
+    const [ rooms, setRooms ] = useState([])
 
     useEffect(() => {
         const socket = io();
 
         socket.on("ping", response => console.log(response));
+    }, []);
+
+    useEffect(() => {
+        const controller = new AbortController();
+
+        fetch("/api/rooms", { signal: controller.signal })
+            .then(res => res.json())
+            .then(json => setRooms(json));
+
+        return () => controller.abort();
     }, []);
 
     return (
@@ -58,31 +68,26 @@ export default function Rooms() {
                     <h3 className='subheader'>
                         <span>
                             Explore
-              </span>
+                        </span>
                         <span>
                             &nbsp;available rooms or create your own one
-              </span>
+                        </span>
                     </h3>
                     <div className='roomsArea'>
-                        {rooms.map(r =>
-                            <RoomContainer
-                                roomNumber={r.roomNumber}
-                                numberOfPlayers={r.numberOfPlayers}
-                            />
-                        )}
+                        { rooms.map(room => (
+                            <RoomContainer key={ room.id } { ...room } />
+                        )) }
                     </div>
                 </div>
                 <div className='imgsSection'>
-                    <Link href={`/room/${newRoom}`}>
+                    <Link href="/api/rooms/new">
                         <a className='createRoomBtn'>
                             Create room
-              </a>
+                        </a>
                     </Link>
                     <div className='roomsOnImgs'>
-                        <div>
-                        </div>
-                        <div>
-                        </div>
+                        <div></div>
+                        <div></div>
                     </div>
                 </div>
             </div>

@@ -1,10 +1,8 @@
-@import '../rooms.scss';
-
 .roomBox{
   width: 540px;
   height: 150px;
-  border: 2px solid $mainBg;
-  color: $mainBg;
+  border: 2px solid var(--accent-color);
+  color: var(--accent-color);
   font-size: 18px;
   line-height: 22px;
   font-weight: 700;
@@ -23,13 +21,13 @@
 .connectBtn{
   width: 160px;
   height: 40px;
-  color: $lightTxt;
-  background: $mainBg;
-  border: 1px solid $mainBg;
+  color: #fff;
+  background: var(--accent-color);
+  border: 1px solid var(--accent-color);
   transition: all .2s ease-in;
   cursor: pointer;
   &:hover {
-    color: $mainBg;
+    color: var(--accent-color);
     background-color: white;
     transition: all .2s ease-in;
   }

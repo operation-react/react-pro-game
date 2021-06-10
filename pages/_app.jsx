@@ -1,4 +1,5 @@
 import { SWRConfig } from "swr";
+import Head from "next/head";
 import fetch from "../lib/fetchJson";
 import '../styles/index.scss'
 import '../styles/room.scss'
@@ -18,6 +19,9 @@ function MyApp({ Component, pageProps }) {
         },
       }}
     >
+      <Head>
+        <link rel="icon" href="/img/icon.png" />
+      </Head>
       <Component {...pageProps} />
     </SWRConfig>
   );

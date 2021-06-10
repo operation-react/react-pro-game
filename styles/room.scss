@@ -1,12 +1,10 @@
-@import './rooms.scss';
-
 h2{
   display: flex;
   align-self: auto;
   justify-content: center;
   margin-top: -70px;
   margin-bottom: 100px;
-  color: $mainBg;
+  color: var(--accent-color);
   white-space: break-spaces;
   &.voting{
     margin: 0;
