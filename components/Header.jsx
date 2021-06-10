@@ -36,7 +36,7 @@ const Header = () => {
     });
 
     return (
-        <header className="app-header" onClick={ () => setExpanded(true) }>
+        <header className="app-header flex" onClick={ () => setExpanded(true) }>
             <div id='extendableLogo' className={ logoClassName }>
                 <div id='extendableLogoFirstWord'>
                     <span className='extendableLogoFirstLetterInWord'>O</span>
